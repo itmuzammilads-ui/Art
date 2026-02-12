@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Your Name | Art Portfolio</title>
+
+<style>
+/* -------------------
+   GLOBAL STYLES
+------------------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f5f5f5;
+  color: #333;
+}
+
+h1, h2 {
+  margin: 0;
+}
+
+/* -------------------
+   HEADER
+------------------- */
+header {
+  background: #111;
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+header p {
+  opacity: 0.8;
+}
+
+/* -------------------
+   NAV
+------------------- */
+nav {
+  position: sticky;
+  top: 0;
+  background: #222;
+  display: flex;
+  justify-content: center;
+  z-index: 1000;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 15px 25px;
+}
+
+nav a:hover {
+  background: #444;
+}
+
+/* -------------------
+   HERO
+------------------- */
+.hero {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+/* -------------------
+   SECTIONS
+------------------- */
+section {
+  padding: 70px 10%;
+}
+
+section h2 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* -------------------
+   GALLERY
+------------------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.grid img {
+  width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.grid img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* -------------------
+   ABOUT
+------------------- */
+#about p {
+  max-width: 700px;
+  margin: auto;
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* -------------------
+   CONTACT
+------------------- */
+form {
+  max-width: 500px;
+  margin: auto;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background: #111;
+  color: white;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #333;
+}
+
+/* -------------------
+   FOOTER
+------------------- */
+footer {
+  background: #111;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+/* -------------------
+   LIGHTBOX
+------------------- */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.lightbox:target {
+  display: flex;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Your Name</h1>
+  <p>Visual Artist & Illustrator</p>
+</header>
+
+<nav>
+  <a href="#gallery">Gallery</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section class="hero">
+  <h2>Welcome to My Art World</h2>
+  <p>Discover original artworks & creative projects</p>
+</section>
+
+<section id="gallery">
+  <h2>Gallery</h2>
+
+  <div class="grid">
+    <img src="https://picsum.photos/600?1" alt="Artwork 1" onclick="openLightbox(this.src)">
+    <img src="https://picsum.photos/600?2" alt="Artwork 2" onclick="openLightbox(this.src)">
+    <img src="https://picsum.photos/600?3" alt="Artwork 3" onclick="openLightbox(this.src)">
+    <img src="https://picsum.photos/600?4" alt="Artwork 4" onclick="openLightbox(this.src)">
+    <img src="https://picsum.photos/600?5" alt="Artwork 5" onclick="openLightbox(this.src)">
+    <img src="https://picsum.photos/600?6" alt="Artwork 6" onclick="openLightbox(this.src)">
+  </div>
+</section>
+
+<section id="about">
+  <h2>About Me</h2>
+  <p>
+    I create expressive and meaningful artwork inspired by emotion,
+    color, and storytelling. My goal is to share visual experiences
+    that connect with people.
+  </p>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+
+  <form>
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <textarea rows="5" placeholder="Your Message"></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<footer>
+  <p>© 2026 Your Name</p>
+</footer>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img">
+</div>
+
+<script>
+function openLightbox(src) {
+  document.getElementById("lightbox-img").src = src;
+  document.getElementById("lightbox").style.display = "flex";
+}
+
+function closeLightbox() {
+  document.getElementById("lightbox").style.display = "none";
+}
+</script>
+
+</body>
+</html>
